@@ -3,6 +3,7 @@ import Header from "./components/Header/Header"
 import Home from "./pages/Home/Home"
 import SignIn from "./pages/SignIn/SingIn"
 import User from "./pages/User/User"
+import Footer from "./components/Footer/Footer"
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/user" element={<User />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   )
 }
