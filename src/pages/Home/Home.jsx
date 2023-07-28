@@ -1,5 +1,10 @@
+import Hero from "../../components/Hero/Hero"
 import "./Home.css"
 
 export default function Home() {
-  return <div>HOME PAGE</div>
+  return (
+    <main>
+      <Hero />
+    </main>
+  )
 }
