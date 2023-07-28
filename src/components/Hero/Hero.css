@@ -15,8 +15,8 @@
 	padding: 2rem;
 	text-align: left;
 	margin: 0 auto;
-	font-family: Avenir, Helvetica, Arial, sans-serif;
 	box-sizing: content-box;
+	line-height: normal;
 }
 
 .hero-content .subtitle {
@@ -46,7 +46,6 @@
 
 	.hero-content .subtitle {
 		font-size: 1.5rem;
-		line-height: normal;
 	}
 
 	.hero-content .text {
