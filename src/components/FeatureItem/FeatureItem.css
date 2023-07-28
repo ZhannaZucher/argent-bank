@@ -1,0 +1,27 @@
+.feature-icon {
+	width: 100px;
+	border: 10px solid #00bc77;
+	border-radius: 50%;
+	padding: 1rem;
+}
+
+.feature-item {
+	box-sizing: content-box;
+	flex: 1;
+	padding: 2.5rem;
+	line-height: normal;
+}
+.feature-item img {
+	box-sizing: content-box;
+}
+
+.feature-item p {
+	margin: 16px 0;
+}
+
+.feature-item-title {
+	color: #222;
+	font-size: 1.25rem;
+	font-weight: bold;
+	margin: 20px 0 0.5rem;
+}
