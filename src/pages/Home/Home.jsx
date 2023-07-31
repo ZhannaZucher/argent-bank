@@ -10,13 +10,7 @@ export default function Home() {
       <section className="features">
         <h2 className="sr-only">Features</h2>
         {features.map((f, index) => (
-          <FeatureItem
-            key={index}
-            icon={f.icon}
-            alt={f.alt}
-            title={f.title}
-            content={f.content}
-          />
+          <FeatureItem key={index} {...f} />
         ))}
       </section>
     </main>
