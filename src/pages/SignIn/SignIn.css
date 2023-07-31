@@ -1,0 +1,27 @@
+.main {
+	flex: 1;
+}
+
+.bg-dark {
+	background-color: #12002b !important;
+}
+
+.sign-in-content {
+	box-sizing: border-box;
+	background-color: white;
+	width: 300px;
+	margin: 0 auto;
+	margin-top: 3rem;
+	padding: 2rem;
+}
+
+.sign-in-content h1 {
+	font-size: 1.5em;
+	font-weight: bold;
+	margin-block-start: 0.7em;
+	margin-block-end: 0.7em;
+}
+
+.sign-in-content .sign-in-icon{
+	font-size: inherit;
+}
