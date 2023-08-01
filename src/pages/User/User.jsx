@@ -1,4 +1,6 @@
+import AccountBlock from "../../components/AccountBlock/AccountBlock"
 import Welcome from "../../components/Welcome/Welcome"
+import { AccountDataMock } from "../../data/AccountDataMock"
 import "./User.css"
 
 export default function User() {
@@ -6,7 +8,9 @@ export default function User() {
     <main className="main bg-dark">
       <Welcome />
       <h2 className="sr-only">Accounts</h2>
-      <section className="account"></section>
+      {AccountDataMock.map((account, index) => {
+        return <AccountBlock key={index} {...account} />
+      })}
     </main>
   )
 }
