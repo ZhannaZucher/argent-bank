@@ -1,14 +1,22 @@
 import { useState } from "react"
 import "./SignInForm.css"
+//import { fetchToken } from "../../app/api/api"
+import { authLogin } from "../../features/auth/authSlice"
+import { useDispatch } from "react-redux"
 
 export default function SignInForm() {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const [rememberMe, setRememberMe] = useState(false)
+  const payload = { email: username, password: password }
+
+  const dispatch = useDispatch()
 
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log(username, password, rememberMe)
+    //faut-il clear les states username, password, rememberMe???
+    dispatch(authLogin(payload))
   }
 
   return (
