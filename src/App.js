@@ -9,25 +9,6 @@ import { store } from "./app/store"
 import Layout from "./components/Layout/Layout"
 import RequireAuth from "./components/RequireAuth/RequireAuth"
 
-/*function App() {
-  return (
-    <Provider store={store}>
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/sign-in" element={<SignIn />} />
-          <Route path="/user" element={<User />} />
-        </Routes>
-        <Footer />
-      </BrowserRouter>
-    </Provider>
-  )
-}
-
-export default App
-*/
-
 function App() {
   return (
     <Provider store={store}>
