@@ -18,10 +18,10 @@ function App() {
           <Route path="/" element={<Layout />}>
             {/* public routes */}
             <Route index element={<Home />} />
-            <Route path="/sign-in" element={<SignIn />} />
+            <Route path="/login" element={<SignIn />} />
             {/* protected routes */}
             <Route element={<RequireAuth />}>
-              <Route path="/user" element={<User />} />
+              <Route path="/profile" element={<User />} />
             </Route>
           </Route>
         </Routes>

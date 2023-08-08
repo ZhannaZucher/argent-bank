@@ -17,7 +17,7 @@ export default function SignInForm() {
   const token = useSelector(selectCurrentToken)
 
   useEffect(() => {
-    token && navigate("/user")
+    token && navigate("/profile")
   }, [token, navigate])
 
   const handleSubmit = (e) => {
