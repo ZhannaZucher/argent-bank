@@ -9,6 +9,7 @@ import { fetchToken } from "../../app/api/api"
 “updating” : the query returned a result but a new query is in progress to update the data. 
 */
 
+//thunk creator
 export function authLogin(payload) {
   //return a thunk
   return async (dispatch, getState) => {
@@ -50,8 +51,13 @@ const authSlice = createSlice({
         errorMessage: action.payload.message,
       }
     },
+    signOut: (state) => {
+      state.status = "void"
+      state.error = null
+      state.accessToken = null
+    },
   },
 })
 
-export const { fetching, resolved, rejected } = authSlice.actions
+export const { fetching, resolved, rejected, signOut } = authSlice.actions
 export default authSlice.reducer
