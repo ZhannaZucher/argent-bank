@@ -1,7 +1,9 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import "./SignInForm.css"
 import { authLogin } from "../../features/auth/authSlice"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { selectCurrentToken } from "../../app/selectors"
+import { useNavigate } from "react-router-dom"
 
 export default function SignInForm() {
   const [username, setUsername] = useState("")
@@ -10,11 +12,16 @@ export default function SignInForm() {
   const payload = { email: username, password: password }
 
   const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const token = useSelector(selectCurrentToken)
+
+  useEffect(() => {
+    token && navigate("/user")
+  }, [token, navigate])
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(username, password, rememberMe)
-    //faut-il clear les states username, password, rememberMe???
     dispatch(authLogin(payload))
   }
 
