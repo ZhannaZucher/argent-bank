@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { fetchToken } from "../../app/api/api"
+import { fetchAPI } from "../../app/api/api"
 
 /* status:
 “void” : the query has not yet been launched ;
@@ -19,7 +19,8 @@ export function authLogin(payload) {
     }
     dispatch(fetching())
     try {
-      const data = await fetchToken(payload)
+      //fetching to get a token
+      const data = await fetchAPI("user/login", "POST", null, payload)
       console.log(data)
       const authToken = data.body.token
       dispatch(resolved(authToken))
