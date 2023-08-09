@@ -1,11 +1,12 @@
-export async function fetchToken(payload) {
-  const response = await fetch("http://localhost:3001/api/v1/user/login", {
-    method: "POST",
+export async function fetchAPI(endpoint, method, token, body) {
+  const response = await fetch(`http://localhost:3001/api/v1/${endpoint}`, {
+    method: method,
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
+      authorization: token ? "Bearer " + token : "",
     },
-    body: JSON.stringify(payload),
+    body: JSON.stringify(body),
   })
   //if status response code is 200-299:
   if (response.ok) {
