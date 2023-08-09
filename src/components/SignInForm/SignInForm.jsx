@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import "./SignInForm.css"
 import { authLogin } from "../../features/auth/authSlice"
 import { useDispatch, useSelector } from "react-redux"
-import { selectCurrentToken } from "../../app/selectors"
+import { selectAuthError, selectCurrentToken } from "../../app/selectors"
 import { useNavigate } from "react-router-dom"
 
 export default function SignInForm() {
@@ -15,6 +15,8 @@ export default function SignInForm() {
   const navigate = useNavigate()
 
   const token = useSelector(selectCurrentToken)
+  const error = useSelector(selectAuthError)
+  console.log(error)
 
   useEffect(() => {
     token && navigate("/profile")
@@ -53,6 +55,15 @@ export default function SignInForm() {
         />
         <label htmlFor="remember-me">Remember me</label>
       </div>
+      {error && (
+        <div className="error-wrapper">
+          <p className="text-danger">
+            {error.errorCode === 400
+              ? "Invalid email or password"
+              : "Server error, retry later"}
+          </p>
+        </div>
+      )}
       <button className="sign-in-button">Sign In</button>
     </form>
   )
