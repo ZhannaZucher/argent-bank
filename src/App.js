@@ -16,7 +16,7 @@ function App() {
   const token = useSelector(selectCurrentToken)
 
   useEffect(() => {
-    token && dispatch(getUserData(null))
+    token && dispatch(getUserData(token))
   }, [token, dispatch])
 
   return (
