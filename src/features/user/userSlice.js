@@ -57,12 +57,18 @@ export function getUserData(token) {
       console.log(data)
       dispatch(resolved(data.body))
     } catch (err) {
-      //!TODO : if error is due to the expired token (response with error 401) => manage here the logout logic
-      dispatch(rejected({ status: err.status, message: err.message }))
+      // if error is due to the expired token (response with error 401)
+      if (err.status === 401) {
+        logOut(dispatch)
+      } else {
+        //stock error data in userSlice
+        dispatch(rejected({ status: err.status, message: err.message }))
+      }
     }
   }
 }
 
+//log out user
 export function logOut(dispatch) {
   sessionStorage.clear()
   secureLocalStorage.clear()

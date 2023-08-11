@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux"
 import "./Welcome.css"
-import { signOut } from "../../features/auth/authSlice"
+import { logOut } from "../../features/user/userSlice"
 
 export default function Welcome() {
   const dispatch = useDispatch()
@@ -11,12 +11,7 @@ export default function Welcome() {
         <br />
         Tony Jarvis!
       </h1>
-      <button
-        className="edit-button"
-        onClick={() => {
-          dispatch(signOut())
-        }}
-      >
+      <button className="edit-button" onClick={() => dispatch(logOut)}>
         Edit Name
       </button>
     </div>
