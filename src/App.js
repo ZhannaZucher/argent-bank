@@ -6,8 +6,19 @@ import User from "./pages/User/User"
 import Footer from "./components/Footer/Footer"
 import Layout from "./components/Layout/Layout"
 import RequireAuth from "./components/RequireAuth/RequireAuth"
+import { useDispatch, useSelector } from "react-redux"
+import { selectCurrentToken } from "./app/selectors"
+import { useEffect } from "react"
+import { getUserData } from "./features/user/userSlice"
 
 function App() {
+  const dispatch = useDispatch()
+  const token = useSelector(selectCurrentToken)
+
+  useEffect(() => {
+    token && dispatch(getUserData(null))
+  }, [token, dispatch])
+
   return (
     <BrowserRouter>
       <Header />
