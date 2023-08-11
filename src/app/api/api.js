@@ -6,7 +6,7 @@ export async function fetchAPI(endpoint, method, token, body) {
       Accept: "application/json",
       authorization: token ? "Bearer " + token : "",
     },
-    body: JSON.stringify(body),
+    body: body ? JSON.stringify(body) : null,
   })
   //if status response code is 200-299:
   if (response.ok) {
