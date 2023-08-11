@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit"
 import { fetchAPI } from "../../app/api/api"
+import secureLocalStorage from "react-secure-storage"
+import { onSignOut } from "../auth/authSlice"
 
 const userSlice = createSlice({
   name: "user",
@@ -40,6 +42,7 @@ const userSlice = createSlice({
   },
 })
 
+//getting user data from API
 export function getUserData(token) {
   //return a thunk
   return async (dispatch, getState) => {
@@ -60,7 +63,14 @@ export function getUserData(token) {
   }
 }
 
-//!TODO global logic for logout function!
+export function logOut(dispatch) {
+  sessionStorage.clear()
+  secureLocalStorage.clear()
+  //return to initial state in userSlice
+  dispatch(signOut())
+  //return to initial state in authSlice
+  dispatch(onSignOut())
+}
 
 export const { fetching, rejected, resolved, signOut } = userSlice.actions
 export default userSlice.reducer
