@@ -4,30 +4,26 @@ import Home from "./pages/Home/Home"
 import SignIn from "./pages/SignIn/SignIn"
 import User from "./pages/User/User"
 import Footer from "./components/Footer/Footer"
-import { Provider } from "react-redux"
-import { store } from "./app/store"
 import Layout from "./components/Layout/Layout"
 import RequireAuth from "./components/RequireAuth/RequireAuth"
 
 function App() {
   return (
-    <Provider store={store}>
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            {/* public routes */}
-            <Route index element={<Home />} />
-            <Route path="/login" element={<SignIn />} />
-            {/* protected routes */}
-            <Route element={<RequireAuth />}>
-              <Route path="/profile" element={<User />} />
-            </Route>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          {/* public routes */}
+          <Route index element={<Home />} />
+          <Route path="/login" element={<SignIn />} />
+          {/* protected routes */}
+          <Route element={<RequireAuth />}>
+            <Route path="/profile" element={<User />} />
           </Route>
-        </Routes>
-        <Footer />
-      </BrowserRouter>
-    </Provider>
+        </Route>
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   )
 }
 
