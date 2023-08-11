@@ -52,7 +52,7 @@ const authSlice = createSlice({
 export function authLogin(payload) {
   //return a thunk
   return async (dispatch, getState) => {
-    const fetchingStatus = getState().status
+    const fetchingStatus = getState().auth.status
     if (fetchingStatus === "fetching") {
       return
     }
