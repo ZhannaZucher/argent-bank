@@ -1,14 +1,18 @@
 import { useEffect, useState } from "react"
 import "./SignInForm.css"
-import { authLogin } from "../../features/auth/authSlice"
+import { authLogin, togglePersist } from "../../features/auth/authSlice"
 import { useDispatch, useSelector } from "react-redux"
-import { selectAuthError, selectCurrentToken } from "../../app/selectors"
+import {
+  selectAuthError,
+  selectCurrentToken,
+  selectRememberMe,
+} from "../../app/selectors"
 import { useNavigate } from "react-router-dom"
+import secureLocalStorage from "react-secure-storage"
 
 export default function SignInForm() {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
-  const [rememberMe, setRememberMe] = useState(false)
   const payload = { email: username, password: password }
 
   const dispatch = useDispatch()
@@ -16,11 +20,19 @@ export default function SignInForm() {
 
   const token = useSelector(selectCurrentToken)
   const error = useSelector(selectAuthError)
-  console.log(error)
+  const rememberMe = useSelector(selectRememberMe)
 
   useEffect(() => {
     token && navigate("/profile")
   }, [token, navigate])
+
+  useEffect(() => {
+    if (rememberMe && token) {
+      secureLocalStorage.setItem("token", token)
+    } else if (token) {
+      sessionStorage.setItem("token", JSON.stringify(token))
+    }
+  }, [token, rememberMe])
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -50,19 +62,17 @@ export default function SignInForm() {
           type="checkbox"
           id="remember-me"
           onChange={(e) => {
-            setRememberMe(e.target.checked)
+            dispatch(togglePersist(e.target.checked))
           }}
         />
         <label htmlFor="remember-me">Remember me</label>
       </div>
       {error && (
-        <div className="error-wrapper">
-          <p className="text-danger">
-            {error.errorCode === 400
-              ? "Invalid email or password"
-              : "Server error, retry later"}
-          </p>
-        </div>
+        <p className="text-danger">
+          {error.errorCode === 400
+            ? "Invalid email or password"
+            : "Server error, retry later"}
+        </p>
       )}
       <button className="sign-in-button">Sign In</button>
     </form>
