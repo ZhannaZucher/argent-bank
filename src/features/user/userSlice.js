@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
+import { fetchAPI } from "../../app/api/api"
 
 const userSlice = createSlice({
   name: "user",
@@ -38,6 +39,28 @@ const userSlice = createSlice({
     },
   },
 })
+
+export function getUserData(token) {
+  //return a thunk
+  return async (dispatch, getState) => {
+    const fetchingStatus = getState().user.status
+    if (fetchingStatus === "fetching") {
+      return
+    }
+    dispatch(fetching())
+    try {
+      //fetching to get data for user profile
+      const data = await fetchAPI("user/profile", "POST", token, null)
+      console.log(data)
+      dispatch(resolved(data.body))
+    } catch (err) {
+      //!TODO : if error is due to the expired token (response with error 401) => manage here the logout logic
+      dispatch(rejected({ status: err.status, message: err.message }))
+    }
+  }
+}
+
+//!TODO global logic for logout function!
 
 export const { fetching, rejected, resolved, signOut } = userSlice.actions
 export default userSlice.reducer
