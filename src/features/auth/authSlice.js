@@ -37,7 +37,7 @@ const authSlice = createSlice({
         errorMessage: action.payload.message,
       }
     },
-    signOut: (state) => {
+    onSignOut: (state) => {
       state.status = "void"
       state.error = null
       state.accessToken = false
@@ -69,6 +69,6 @@ export function authLogin(payload) {
   }
 }
 
-export const { fetching, resolved, rejected, signOut, togglePersist } =
+export const { fetching, resolved, rejected, onSignOut, togglePersist } =
   authSlice.actions
 export default authSlice.reducer
