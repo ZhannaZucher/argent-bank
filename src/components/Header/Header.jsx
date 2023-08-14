@@ -1,8 +1,13 @@
 import { Link } from "react-router-dom"
 import "./Header.css"
 import logo from "../../assets/argentBankLogo.png"
+import { useSelector } from "react-redux"
+import { selectUserData, selectUserStatus } from "../../app/selectors"
 
 export default function Header() {
+  const isLogged = useSelector(selectUserStatus)
+  const user = useSelector(selectUserData)
+  console.log(user.firstName)
   return (
     <nav className="main-nav">
       <Link className="main-nav-logo" to="/">
@@ -13,12 +18,25 @@ export default function Header() {
         />
         <h1 className="sr-only">Argent Bank</h1>
       </Link>
-      <div>
-        <a className="main-nav-item" href="/login">
-          <i className="fa fa-user-circle"></i>
-          Sign In
-        </a>
-      </div>
+      {isLogged === "resolved" ? (
+        <div>
+          <a href="/profile" className="main-nav-item">
+            <i className="fa fa-user-circle"></i>
+            {user.firstName}
+          </a>
+          <a href="/" className="main-nav-item">
+            <i className="fa fa-sign-out"></i>
+            Sign Out
+          </a>
+        </div>
+      ) : (
+        <div>
+          <a className="main-nav-item" href="/login">
+            <i className="fa fa-user-circle"></i>
+            Sign In
+          </a>
+        </div>
+      )}
     </nav>
   )
 }
