@@ -1,19 +1,17 @@
-import { useDispatch } from "react-redux"
+import { useSelector } from "react-redux"
 import "./Welcome.css"
-import { logOut } from "../../features/user/userSlice"
+import { selectUserData } from "../../app/selectors"
 
 export default function Welcome() {
-  const dispatch = useDispatch()
+  const user = useSelector(selectUserData)
   return (
     <div className="header">
       <h1>
         Welcome back
         <br />
-        Tony Jarvis!
+        {user.firstName + " " + user.lastName + "!"}
       </h1>
-      <button className="edit-button" onClick={() => dispatch(logOut)}>
-        Edit Name
-      </button>
+      <button className="edit-button">Edit Name</button>
     </div>
   )
 }
