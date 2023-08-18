@@ -2,14 +2,6 @@ import { createSlice } from "@reduxjs/toolkit"
 import { fetchAPI } from "../../app/api/api"
 import { getTokenFromStorage } from "../../utils/tokenStorage"
 
-/* status:
-“void” : the query has not yet been launched ;
-“fetching” : the query is in progress ;
-“resolved” : the query returned a result ;
-“rejected” : the query failed;
-“updating” : the query returned a result but a new query is in progress to update the data. 
-*/
-
 //check if access token is already stored in local or session storage or null for initial state
 const initialAccessToken = getTokenFromStorage()
 
