@@ -9,7 +9,7 @@ import Loader from "../../components/Loader/Loader"
 export default function User() {
   const queryStatus = useSelector(selectUserStatus)
   const error = useSelector(selectUserError)
-  console.log(error)
+
   return (
     <>
       {error?.errorCode ? (
@@ -20,7 +20,7 @@ export default function User() {
         </div>
       ) : (
         <main className="main bg-dark">
-          {queryStatus === "fetching" ? (
+          {queryStatus === "fetching" || queryStatus === "updating" ? (
             <Loader />
           ) : (
             <>
