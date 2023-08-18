@@ -74,7 +74,9 @@ export default function SignInForm() {
             : "Server error, retry later"}
         </p>
       )}
-      <button className="sign-in-button">Sign In</button>
+      <button type="submit" className="sign-in-button">
+        Sign In
+      </button>
     </form>
   )
 }
