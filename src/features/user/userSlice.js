@@ -8,14 +8,15 @@ const userSlice = createSlice({
   initialState: {
     status: "void",
     error: null,
-    id: null,
-    email: null,
     firstName: null,
     lastName: null,
   },
   reducers: {
     fetching: (state) => {
       state.status = "fetching"
+    },
+    updating: (state) => {
+      state.status = "updating"
     },
     rejected: (state, action) => {
       state.status = "rejected"
@@ -26,16 +27,12 @@ const userSlice = createSlice({
     },
     resolved: (state, action) => {
       state.status = "resolved"
-      state.id = action.payload.id
-      state.email = action.payload.email
       state.firstName = action.payload.firstName
       state.lastName = action.payload.lastName
     },
     signOut: (state) => {
       state.status = "void"
       state.error = null
-      state.id = null
-      state.email = null
       state.firstName = null
       state.lastName = null
     },
@@ -78,5 +75,28 @@ export function logOut(dispatch) {
   dispatch(onSignOut())
 }
 
-export const { fetching, rejected, resolved, signOut } = userSlice.actions
+//thunk creator for updating profile
+export function updateProfile(payload) {
+  //return a thunk
+  return async (dispatch, getState) => {
+    const status = getState().user.status
+    const token = getState().auth.accessToken
+
+    if (status === "updating") {
+      return
+    }
+    dispatch(updating())
+    try {
+      const data = await fetchAPI("user/profile", "PUT", token, payload)
+      console.log(data)
+      dispatch(resolved(data.body))
+    } catch (err) {
+      console.log(err)
+      dispatch(rejected({ status: err.status, message: err.message }))
+    }
+  }
+}
+
+export const { fetching, updating, rejected, resolved, signOut } =
+  userSlice.actions
 export default userSlice.reducer
