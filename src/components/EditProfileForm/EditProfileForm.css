@@ -1,0 +1,38 @@
+.editform {
+	max-width: 300px;
+	margin: 0 auto;
+}
+
+.editform__input-wrapper {
+	display: flex;
+	justify-content: space-between;
+}
+
+.editform__input-wrapper input {
+	max-width: 48%;
+	padding: 5px;
+	font-size: 1.2rem;
+	background: #E8F0FE;
+	border-width: 1px;
+	line-height: normal;
+	border-radius: 3px;
+	color: #514f4f;
+}
+.editform__btn-wrapper button {
+	display: inline-block;
+	width: 70px;
+	padding: 8px;
+	font-size: 0.85rem;
+	font-weight: bold;
+	margin: 1rem 0.4rem;
+	border-width: 1px;
+	border-radius: 1px;
+	line-height: normal;
+	background-color: #00bc77;
+	border-color: #00bc77;
+	color: #fff;
+	box-shadow: 1px 1px 1px #514f4f;
+}
+	
+	
+	
