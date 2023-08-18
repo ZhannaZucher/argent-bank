@@ -81,7 +81,6 @@ export function updateProfile(payload) {
   return async (dispatch, getState) => {
     const status = getState().user.status
     const token = getState().auth.accessToken
-
     if (status === "updating") {
       return
     }
@@ -91,8 +90,12 @@ export function updateProfile(payload) {
       console.log(data)
       dispatch(resolved(data.body))
     } catch (err) {
-      console.log(err)
-      dispatch(rejected({ status: err.status, message: err.message }))
+      // if error is due to the expired token (response with error 401)
+      if (err.status === 401) {
+        logOut(dispatch)
+      } else {
+        dispatch(rejected({ status: err.status, message: err.message }))
+      }
     }
   }
 }
