@@ -4,3 +4,9 @@
 	align-items: center;
 	font-size: x-large;
 }
+
+@media (max-width: 576px) {
+	.error-block {
+		font-size: large;
+	}
+}

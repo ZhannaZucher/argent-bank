@@ -22,7 +22,7 @@ export default function Header() {
         <h1 className="sr-only">Argent Bank</h1>
       </Link>
       {isLogged ? (
-        <div>
+        <div className="main-nav-signout">
           <a href="/profile" className="main-nav-item">
             <i className="fa fa-user-circle"></i>
             {user.firstName}

@@ -53,3 +53,14 @@
 	max-width: 100%;
 	width: 200px;
 }
+
+@media (max-width: 576px) {
+	.main-nav-signout a {
+		font-size: smaller;
+		display: block;
+		text-align: right;
+	}
+	.main-nav-logo-image {
+		width: 160px;
+	}
+}
