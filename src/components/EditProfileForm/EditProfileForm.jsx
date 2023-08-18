@@ -1,14 +1,15 @@
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { useState } from "react"
 import { selectUserData } from "../../app/selectors"
 import "./EditProfileForm.css"
+import { updateProfile } from "../../features/user/userSlice"
 
 export default function EditProfileForm({ isEditing, setIsEditing }) {
   const user = useSelector(selectUserData)
+  const dispatch = useDispatch()
+
   const [firstName, setFirstName] = useState(user.firstName)
   const [lastName, setLastName] = useState(user.lastName)
-
-  console.log(firstName, lastName)
 
   //handling the canceling of profile updating
   function handleReset() {
@@ -16,7 +17,15 @@ export default function EditProfileForm({ isEditing, setIsEditing }) {
   }
   const handleSubmit = (e) => {
     e.preventDefault()
-    //add logic for state and API profile updating here
+    //if input values are equal to user data in redux state
+    if (firstName === user.firstName && lastName === user.lastName) {
+      //hide the edit form
+      handleReset()
+      return
+    }
+    const payload = { firstName: firstName, lastName: lastName }
+    dispatch(updateProfile(payload))
+    handleReset()
   }
 
   return (
@@ -24,13 +33,11 @@ export default function EditProfileForm({ isEditing, setIsEditing }) {
       <div className="editform__input-wrapper">
         <input
           type="text"
-          //defaultValue={user.firstName}
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
         />
         <input
           type="text"
-          //defaultValue={user.lastName}
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
         />
