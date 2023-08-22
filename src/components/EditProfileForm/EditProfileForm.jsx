@@ -23,8 +23,7 @@ export default function EditProfileForm({ isEditing, setIsEditing }) {
       handleReset()
       return
     }
-    const payload = { firstName: firstName, lastName: lastName }
-    dispatch(updateProfile(payload))
+    dispatch(updateProfile({ firstName, lastName }))
     handleReset()
   }
 

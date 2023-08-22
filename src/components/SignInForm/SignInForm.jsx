@@ -13,7 +13,6 @@ import secureLocalStorage from "react-secure-storage"
 export default function SignInForm() {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
-  const payload = { email: username, password: password }
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -36,7 +35,7 @@ export default function SignInForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    dispatch(authLogin(payload))
+    dispatch(authLogin({ email: username, password }))
   }
 
   return (
