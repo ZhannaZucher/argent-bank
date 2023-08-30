@@ -33,6 +33,7 @@ const authSlice = createSlice({
       state.status = "void"
       state.error = null
       state.accessToken = false
+      state.rememberMe = false
     },
     togglePersist: (state, action) => {
       state.rememberMe = action.payload
