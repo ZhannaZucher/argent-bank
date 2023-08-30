@@ -53,7 +53,6 @@ export function authLogin(payload) {
     try {
       //fetching to get a token
       const data = await fetchAPI("user/login", "POST", null, payload)
-      console.log(data)
       const authToken = data.body.token
       dispatch(resolved(authToken))
     } catch (err) {

@@ -6,7 +6,6 @@ import Loader from "../../components/Loader/Loader"
 
 export default function SignIn() {
   const queryStatus = useSelector(selectAuthStatus)
-  console.log(queryStatus)
   return (
     <main className="main bg-dark">
       {queryStatus === "fetching" ? (

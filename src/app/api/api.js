@@ -11,10 +11,8 @@ export async function fetchAPI(endpoint, method, token, body) {
   //if status response code is 200-299:
   if (response.ok) {
     const data = await response.json()
-    console.log(data)
     return data
   } else {
-    console.log(response)
     //error generation with response object for cases when !response.ok
     throw response
   }

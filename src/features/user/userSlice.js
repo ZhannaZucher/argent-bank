@@ -51,7 +51,6 @@ export function getUserData(token) {
     try {
       //fetching to get data for user profile
       const data = await fetchAPI("user/profile", "POST", token, null)
-      console.log(data)
       dispatch(resolved(data.body))
     } catch (err) {
       // if error is due to the expired token (response with error 401)
