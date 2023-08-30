@@ -23,12 +23,12 @@ export default function Header() {
       </Link>
       {isLogged ? (
         <div className="main-nav-signout">
-          <a href="/profile" className="main-nav-item">
+          <Link to="/profile" className="main-nav-item">
             <i className="fa fa-user-circle"></i>
             {user.firstName}
-          </a>
-          <a
-            href="/"
+          </Link>
+          <Link
+            to="/"
             className="main-nav-item"
             onClick={(e) => {
               e.preventDefault()
@@ -37,14 +37,14 @@ export default function Header() {
           >
             <i className="fa fa-sign-out"></i>
             Sign Out
-          </a>
+          </Link>
         </div>
       ) : (
         <div>
-          <a className="main-nav-item" href="/login">
+          <Link className="main-nav-item" to="/login">
             <i className="fa fa-user-circle"></i>
             Sign In
-          </a>
+          </Link>
         </div>
       )}
     </nav>
