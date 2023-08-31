@@ -20,8 +20,8 @@ Issues [here](https://github.com/OpenClassrooms-Student-Center/Project-10-Bank-A
 
 ### phase 2 :
 
-Design of API models forendpoints for transactions module.
-[Yaml Swagger file here](https://github.com/ZhannaZucher/argent-bank/blob/master/swagger.yaml)
+Design of API models for endpoints for transactions module.
+Yaml Swagger file [here](https://github.com/ZhannaZucher/argent-bank/blob/master/swagger.yaml)
 
 ## Project setup
 
