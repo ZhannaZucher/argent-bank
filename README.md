@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# Argent Bank App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![REACT](https://img.shields.io/badge/React-303540?style=for-the-badge&logo=react&logoColor=61DAFB)
+![ReactRouter](https://img.shields.io/badge/React_Router-ca4245?style=for-the-badge&logo=reactrouter&labelColor=000)
+![ReactRouter](https://img.shields.io/badge/React_Secure_Storage-00bc77?style=for-the-badge&logo=react&labelColor=00bc77)
+![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white&labelColor=000)
+![Redux Toolkit](https://img.shields.io/badge/Redux_Toolkit-303540?style=for-the-badge&logo=redux&logoColor=61DAFB)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![js](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-6f42c1?style=for-the-badge&logo=bootstrap&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
 
-## Available Scripts
+## Presentation:
 
-In the project directory, you can run:
+### phase 1 :
 
-### `npm start`
+User authentification and profile update handling.
+Issues [here](https://github.com/OpenClassrooms-Student-Center/Project-10-Bank-API/tree/master/.github/ISSUE_TEMPLATE)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### phase 2 :
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Design of API models forendpoints for transactions module.
+[Yaml Swagger file here](https://github.com/ZhannaZucher/argent-bank/blob/master/swagger.yaml)
 
-### `npm test`
+## Project setup
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Install the source code to run the API forking and cloning it from [here](https://github.com/OpenClassrooms-Student-Center/Project-10-Bank-API)
 
-### `npm run build`
+2. Clone the UI source code [here](https://github.com/ZhannaZucher/argent-bank.git)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 1. Backend :
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Follow instructions to launch the API disponible in Backend repo [README](https://github.com/OpenClassrooms-Student-Center/Project-10-Bank-API/blob/master/README.md).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Install the dependencies with <code>npm install</code> command in the terminal.
 
-### `npm run eject`
+Populate database with two users <code>npm run populate-db</code>.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Start local dev server <code>npm run dev:server</code>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Your server should now be running at http://localhost:3001 and you will now have two users in your MongoDB database.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+To learn more about how the API works, once you have started your local environment, you can visit: http://localhost:3001/api-docs
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 2. Frontend :
 
-## Learn More
+Install the dependencies with <code>npm install</code> command in the terminal.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The run the app in dev mode with <code>npm start</code> command in the terminal which opens the disponible port [http://localhost:3000](http://localhost:3000).
