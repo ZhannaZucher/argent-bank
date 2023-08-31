@@ -2,13 +2,8 @@ import { useEffect, useState } from "react"
 import "./SignInForm.css"
 import { authLogin, togglePersist } from "../../features/auth/authSlice"
 import { useDispatch, useSelector } from "react-redux"
-import {
-  selectAuthError,
-  selectCurrentToken,
-  selectRememberMe,
-} from "../../app/selectors"
+import { selectAuthError, selectCurrentToken } from "../../app/selectors"
 import { useNavigate } from "react-router-dom"
-import secureLocalStorage from "react-secure-storage"
 
 export default function SignInForm() {
   const [username, setUsername] = useState("")
@@ -19,19 +14,10 @@ export default function SignInForm() {
 
   const token = useSelector(selectCurrentToken)
   const error = useSelector(selectAuthError)
-  const rememberMe = useSelector(selectRememberMe)
 
   useEffect(() => {
     token && navigate("/profile")
   }, [token, navigate])
-
-  useEffect(() => {
-    if (rememberMe && token) {
-      secureLocalStorage.setItem("token", token)
-    } else if (token) {
-      sessionStorage.setItem("token", JSON.stringify(token))
-    }
-  }, [token, rememberMe])
 
   const handleSubmit = (e) => {
     e.preventDefault()
