@@ -138,6 +138,10 @@ paths:
             $ref: "#/definitions/UserAccounts"
         "400":
           description: Invalid Fields
+        "401":
+          description: Unauthorized, missing or invalid Bearer token
+        "403":
+          description: Forbidden. The client does not have access rights to the content
         "500":
           description: Internal Server Error
 
@@ -168,6 +172,10 @@ paths:
             $ref: "#/definitions/AccountTransactions"
         "400":
           description: Invalid Fields
+        "401":
+          description: Unauthorized, missing or invalid Bearer token
+        "403":
+          description: Forbidden. The client does not have access rights to the content
         "500":
           description: Internal Server Error
 
@@ -208,6 +216,10 @@ paths:
             $ref: "#/definitions/UpdateTransactionAPIResponse"
         "400":
           description: Invalid Fields
+        "401":
+          description: Unauthorized, missing or invalid Bearer token
+        "403":
+          description: Forbidden. The client does not have access rights to the content
         "500":
           description: Internal Server Error
 
