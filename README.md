@@ -13,9 +13,11 @@
 
 ## Presentation:
 
+![AB](screenshot.png)
+
 ### phase 1 :
 
-User authentification and profile update handling.
+User authentification with JWT token and profile update handling.
 Issues [here](https://github.com/OpenClassrooms-Student-Center/Project-10-Bank-API/tree/master/.github/ISSUE_TEMPLATE)
 
 ### phase 2 :
